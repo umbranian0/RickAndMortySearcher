@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState } from "react";
 import Link from 'next/link'
+import { motion } from 'framer-motion';
 
 const defaultEndpoint = `https://rickandmortyapi.com/api/character/`;
 
@@ -84,7 +85,6 @@ export default function Home({data}) {
     });
   }
 //------------------  
-  console.log('data', data);
   
   return (
  
@@ -95,9 +95,25 @@ export default function Home({data}) {
       </Head>
 
       <main className={styles.main}>
+
+      <motion.div initial="hidden" animate="visible" variants={{
+        hidden: {
+          scale: .8,
+          opacity: 0
+        },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          transition: {
+            delay: .4
+          }
+        },
+      }}>
+
         <h1 className={styles.title}>
-         Wullabulla morty
+         Wubba Lubba Dub Dub!
         </h1>
+      </motion.div>
 
         <p className={styles.description}>
         <h3>
